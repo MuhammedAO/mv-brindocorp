@@ -4,6 +4,7 @@ const express = require('express')
   , cookieParser = require('cookie-parser')
   , config = require('./config/key')
   , cors = require('cors')
+  , path = require('path')
 
 mongoose.connect(config.mongoURI, {
   useNewUrlParser: true,
