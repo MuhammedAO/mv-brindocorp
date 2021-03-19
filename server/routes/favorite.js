@@ -37,7 +37,7 @@ router.post("/favorited", auth, (req, res) => {
 })
 
 
-router.post("/addToFavorite", (req, res) => {
+router.post("/addToFavorite", auth, (req, res) => {
 
   // Save the information about the movie or user Id  inside favorite collection 
   const favorite = new Favorite(req.body)

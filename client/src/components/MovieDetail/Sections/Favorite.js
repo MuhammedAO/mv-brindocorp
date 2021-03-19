@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { Button} from 'antd'
 import axios from 'axios'
+import { useSelector } from 'react-redux';
 
 function Favorite(props) {
 
+  const user = useSelector(state => state.user)
   const [FavoriteNumber, setFavoriteNumber] = useState(0)
   const [Favorited, setFavorited] = useState(false)
 
@@ -23,7 +25,7 @@ function Favorite(props) {
           console.log(response.data.favoriteNumber)
           setFavoriteNumber(response.data.favoriteNumber)
         } else {
-          alert('Failed to get favoriteNumber')
+          console.log('Failed to get favoriteNumber')
         }
       })
 
@@ -32,13 +34,16 @@ function Favorite(props) {
         if (response.data.success) {
           setFavorited(response.data.favorited)
         } else {
-          alert('Failed to get Favorite Info')
+          console.log('Failed to get Favorite Info')
         }
       })
 
   }, [])
 
   const addToFavorites = () => {
+    if (user.userData && !user.userData.isAuth) {
+      return alert('Please Log in first');
+  }
     if (Favorited) {
       // When already added 
       axios.post('/api/favorite/removeFromFavorite', variable)
@@ -47,7 +52,7 @@ function Favorite(props) {
             setFavoriteNumber(FavoriteNumber - 1)
             setFavorited(!Favorited)
           } else {
-            alert(' Failed to remove from favorite')
+            console.log(' Failed to remove from favorite')
           }
         })
 
@@ -56,12 +61,13 @@ function Favorite(props) {
     } else {
       //When Not added 
       axios.post('/api/favorite/addToFavorite', variable)
+
         .then(response => {
           if (response.data.success) {
             setFavoriteNumber(FavoriteNumber + 1)
             setFavorited(!Favorited)
           } else {
-            alert(' Failed to add to Favirotes')
+            console.log(' Failed to add to Favirotes')
           }
         })
 
