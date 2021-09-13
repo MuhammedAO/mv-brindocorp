@@ -5,6 +5,14 @@ const router = express.Router()
 
 const { User } = require('../models/User')
 
+router.get('/api/epic', (req, res) => {
+  const code = req.query.code
+  if(code) {
+    res.send(code)
+  }
+ return 'Hello world'
+})
+
 router.get('/', (req, res) => {
   res.send({ message: 'Hello World' })
 })

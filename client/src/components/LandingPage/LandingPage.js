@@ -75,6 +75,7 @@ function LandingPage() {
         <br />
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           <Button onClick={loadMore}>Load More</Button>
+          Did the push work?
         </div>
       </div>
 
