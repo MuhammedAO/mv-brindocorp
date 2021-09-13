@@ -31,6 +31,14 @@ app.use('/api/users', require('./routes/users'))
 
 app.use('/api/favorite', require('./routes/favorite'))
 
+app.get('/api/epic', (req, res) => {
+  const code = req.query.code
+  if(code) {
+    res.send(code)
+  }
+ return 'Hello worlddd'
+})
+
 
 
 
