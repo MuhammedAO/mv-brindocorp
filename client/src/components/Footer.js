@@ -9,7 +9,7 @@ function Footer() {
             flexDirection: 'column', alignItems: 'center',
             justifyContent: 'center', fontSize:'1rem'
         }}>
-           <small>For Brindocorp</small>
+           
            <GrCode/>
         </div>
     )

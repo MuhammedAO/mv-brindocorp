@@ -1,6 +1,4 @@
 const express = require('express')
-const  getTokens = require('../getToken')
-const axios = require("axios")
 
 const router = express.Router()
 

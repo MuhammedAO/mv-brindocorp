@@ -8,6 +8,7 @@ import LandingPage from './LandingPage/LandingPage'
 import MovieDetail from './MovieDetail/MovieDetail'
 import Footer from './Footer'
 import FavoritePage from './FavoritePage/FavoritePage'
+import Epic from './Epic'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <div style={{ paddingTop: '69px', minHeight: 'calc(100vh - 80px)' }}>
         <Switch>
           <Route exact path='/' component={Auth(LandingPage, null)} />
+          <Route exact path='/epic' component={Auth(Epic, null)} />
           <Route path='/login' component={Auth(LoginPage, false)} />
           <Route path='/register' component={Auth(RegisterPage, false)} />
           <Route path='/movie/:movieId' component={Auth(MovieDetail, null)} />
